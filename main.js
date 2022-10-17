@@ -2,7 +2,7 @@ function ValidaCpf(cpfEnviado){
     Object.defineProperty(this, 'cpfLimpo',{
         enumerable: true,
         get: function() {
-            return cpfEnviado.replace(/\D+/g, '');
+            return cpfEnviado.replace(/\D+/g , '');
         }
     });
 }
@@ -21,9 +21,9 @@ ValidaCpf.prototype.valida = function (){
 };
 
 ValidaCpf.prototype.criaDigito = function(cpfParcial){
-    const cpfArray = Array.from(cpfParcial)
-    let regressivo = cpfArray.length;
-    let total = cpfArray.reduce((ac, val)=>{
+    const cpfArray = Array.from(cpfParcial);
+    let regressivo = cpfArray.length+1;
+    const total = cpfArray.reduce((ac, val)=>{
         ac +=(regressivo * Number(val));
         regressivo --; 
         return ac;
@@ -38,7 +38,7 @@ ValidaCpf.prototype.isSequencia = function() {
     return sequencia === this.cpfLimpo;
 };
 
-const cpf = new ValidaCpf(/*insira o cpf aqui*/)
+const cpf = new ValidaCpf('INSIRA O CPF AQUI')
 
 if(cpf.valida()){
     console.log('Cpf válido')
