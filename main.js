@@ -41,7 +41,7 @@ class ValidaCpf {
     }
 }
 
-let validacpf = new ValidaCpf('111.111.111-11');
+let validacpf = new ValidaCpf('DIGITE O CPF AQUI');
 
 if (validacpf.valida()){
     console.log('CPF válido');
